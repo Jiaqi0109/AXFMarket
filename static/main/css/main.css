@@ -90,4 +90,9 @@ a:active{
     text-decoration:none
 }
 
+/* 上下边距 */
+#body_content{
+    margin: 1.5rem 0;
+}
+
 
