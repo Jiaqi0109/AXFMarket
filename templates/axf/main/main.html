@@ -10,8 +10,13 @@
         {% block mainResource %}
 
         {% endblock %}
+        <div id="header_content">
+            {% block header_content %}
+                <span id="text">天丰利商城<span class="glyphicon glyphicon-map-marker"></span></span>
+            {% endblock %}
+        </div>
     </header>
-{#    留边距#}
+    {#    留边距#}
     <div id="body_content">
         {% block content %}
 

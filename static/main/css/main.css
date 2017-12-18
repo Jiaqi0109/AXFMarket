@@ -21,12 +21,13 @@ header, footer{
     display: flex;
 }
 header{
-    background:yellow;
+    background: #ffd600;
     top:0;
     left:0;
 }
 footer{
-    background:#fff;
+    background-color: rgba(246,246,246,.95);
+    height: 1.8rem;
     bottom:0;
     left:0;
 }
@@ -47,31 +48,34 @@ footer dl dt{
 
 footer dl dt span{
     display:inline-block;
-    width:0.513889rem;
-    height:0.513889rem;
+    width:0.6rem;
+    height:0.6rem;
 }
 
 footer dl dd{
     width: 100%;
     height: 0.708333rem;
+    color: #777;
+    font-size: 0.4rem;
+    margin-top: 0.2rem;
 }
 
 
 footer .home span{
     background: url(/static/main/img/home.png) no-repeat;
-    background-size:0.513889rem;
+    background-size:0.6rem;
 }
 footer .market span{
     background:url(/static/main/img/market.png) no-repeat;
-    background-size:0.513889rem;
+    background-size:0.6rem;
 }
 footer .cart span{
     background:url(/static/main/img/cart.png) no-repeat;
-    background-size:0.513889rem;
+    background-size:0.6rem;
 }
 footer .mine span{
     background:url(/static/main/img/mine.png) no-repeat;
-    background-size:0.513889rem;
+    background-size:0.6rem;
 }
 
 a{
@@ -92,7 +96,23 @@ a:active{
 
 /* 上下边距 */
 #body_content{
-    margin: 1.5rem 0;
+    margin: 1.5rem 0 1.8rem 0;
 }
 
+/* header 文字 */
+#header_content{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 2rem;
+    right: 2rem;
+    font-weight: 700;
+    font-size: 0.5rem;
+}
+#header_content #text{
+    display: block;
+    position: absolute;
+    top: 25%;
+    left: 25%;
+}
 

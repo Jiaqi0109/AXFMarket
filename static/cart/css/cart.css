@@ -1,8 +1,13 @@
 footer .cart span{
     background:url(/static/main/img/cart1.png) no-repeat;
-    background-size:0.513889rem;
+    background-size:0.6rem;
 }
 
-footer .cart dd{
-    color: #ffff00;
+header{
+    background: #f9fafd;
+    border: solid 0.5px #e0e0e0;
+}
+
+#header_content{
+    left: 3rem;
 }

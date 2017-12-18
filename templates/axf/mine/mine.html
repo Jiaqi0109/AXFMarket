@@ -5,6 +5,75 @@
     <link rel="stylesheet" href="{% static 'mine/css/mine.css' %}">
 {% endblock %}
 
+{% block header_content %}
+    <div id="user">
+        <a class="user-img user-block" href="#"></a>
+        <a class="user-name user-block">
+            Username
+        </a>
+    </div>
+    <div id="collection">
+        <a class="collection-son">
+            商品收藏
+        </a>
+        <a class="collection-son">
+            店铺收藏
+        </a>
+
+    </div>
+{% endblock %}
+
 {% block content %}
-    我的我的我的我的我的我的我的我的我的我的我的我的我的我的我的我的我的我的我的我的我的我的我的我的我的我的我的我的我的我的
+    <div class="block order">
+        <div class="b1st_block block_son">
+            <span>我的订单</span><span>查看全部订单 > </span>
+        </div>
+        <div class="b2nd_block block_son">
+            <a href="" id="b2nd_icon">
+                <span class="glyphicon glyphicon-qrcode"></span>
+                <div id="text">待付款</div>
+            </a>
+            <a href="" id="b2nd_icon">
+                <span class="glyphicon glyphicon-plane"></span>
+                <div id="text">待收货</div>
+            </a>
+            <a href="" id="b2nd_icon">
+                <span class="glyphicon glyphicon-edit"></span>
+                <div id="text">待评价</div>
+            </a>
+            <a href="" id="b2nd_icon">
+                <span class="glyphicon glyphicon-phone-alt"></span>
+                <div id="text">退款</div>
+            </a>
+        </div>
+    </div>
+    <div class="block">
+        <div class="b3rd_block block_son">
+            <a href="" id="b3nd_icon">
+                <span class="glyphicon glyphicon-cloud"></span>
+                <div id="text">积分商城</div>
+            </a>
+            <a href="" id="b3nd_icon">
+                <span class="glyphicon glyphicon-star-empty"></span>
+                <div id="text">优惠券</div>
+            </a>
+            <a href="" id="b3nd_icon">
+                <span class="glyphicon glyphicon-shopping-cart"></span>
+                <div id="text">收货地址</div>
+            </a>
+            <a href="" id="b3nd_icon">
+                <span class="glyphicon glyphicon-briefcase"></span>
+                <div id="text">客服</div>
+            </a>
+        </div>
+        <div class="b4th_block block_son">
+            <a href="" id="b3nd_icon">
+                <span class="glyphicon glyphicon-tasks"></span>
+                <div id="text">关于我们</div>
+            </a>
+        </div>
+    </div>
+    <div class="block logout">
+        <a href="#">退出当前账号</a>
+    </div>
 {% endblock %}

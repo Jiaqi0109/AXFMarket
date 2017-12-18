@@ -1,8 +1,5 @@
 footer .market span{
     background:url(/static/main/img/market1.png) no-repeat;
-    background-size:0.513889rem;
+    background-size:0.6rem;
 }
 
-footer .market dd{
-    color: #ffff00;
-}
