@@ -33,10 +33,6 @@ def home(request):
     return render(request, 'axf/home/home.html', context)
 
 
-def mine(request):
-    return render(request, 'axf/mine/mine.html')
-
-
 def market(request, typeid, childcid, sort_rule):
     title = '闪送超市'
     foodtypes = FoodTypes.objects.all()
@@ -83,9 +79,13 @@ def market(request, typeid, childcid, sort_rule):
     return render(request, 'axf/market/market.html', context)
 
 
+def urlToMarket(request):
+    return redirect(reverse('axf:market', args=['104749', 0, 0]))
+
+
 def cart(request):
     return render(request, 'axf/cart/cart.html')
 
 
-def urlToMarket(request):
-    return redirect(reverse('axf:market', args=['104749', 0, 0]))
+def mine(request):
+    return render(request, 'axf/mine/mine.html')

@@ -3,7 +3,6 @@ footer .market span {
     background-size: 0.6rem;
 }
 
-
 /*********左面的的导航*********************/
 aside {
     width: 2.5rem;
@@ -238,10 +237,29 @@ section menu > div > div > a > span {
     margin-top: 0.3rem;
 }
 
-#all_type_content{
-    display: none;
-}
-#sort_rule_content{
+#all_type_content {
     display: none;
 }
 
+#sort_rule_content {
+    display: none;
+}
+
+#click_block {
+    display: inline-block;
+    line-height: 1rem;
+    width: 0.2rem;
+    background: #ff0;
+    float: left;
+    height: 1rem;
+    position: relative;
+    top: 0.15rem;
+}
+
+#noclick_block {
+    display: inline-block;
+    line-height: 1rem;
+    float: left;
+    width: 0.2rem;
+    height: 1rem;
+}

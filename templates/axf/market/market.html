@@ -12,7 +12,15 @@
         <ul>
             {% for foodtype in foodtypes %}
                 <li>
-                    <a href="{% url 'axf:market' foodtype.typeid 0 0 %}">{{ foodtype.typename }}</a>
+                    {% ifequal typeid foodtype.typeid %}
+                        <span id="click_block"></span>
+                    {% else %}
+                        <span id="noclick_block"></span>
+                    {% endifequal %}
+
+                    <a href="{% url 'axf:market' foodtype.typeid 0 0 %}">
+                        {{ foodtype.typename }}
+                    </a>
                 </li>
             {% endfor %}
         </ul>
