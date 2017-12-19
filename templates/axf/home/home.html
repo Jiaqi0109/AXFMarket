@@ -20,4 +20,124 @@
         <div class="swiper-pagination"></div>
     </section>
 
+    <!--导航-->
+    <section class="topMenu">
+        <nav>
+            <ul>
+                {% for nav in navs %}
+                    <li>
+                        <a href="#">
+                            <dl>
+                                <dt><img src="{{ nav.img }}" alt=""></dt>
+                                <dd>{{ nav.name }}</dd>
+                            </dl>
+                        </a>
+                    </li>
+                {% endfor %}
+
+            </ul>
+        </nav>
+    </section>
+
+    <!--第二个轮播-->
+    <section class="swiper-container" id="swiperMenu">
+        <ul class="swiper-wrapper">
+            {% for mustbuy in mustbuys %}
+                <li class="swiper-slide">
+                    <a href="#"><img src="{{ mustbuy.img }}" alt=""></a>
+                </li>
+            {% endfor %}
+        </ul>
+    </section>
+
+    <!--便利商店-->
+    <section class="CVS">
+        {#     title 一行   #}
+        <h2><img src="{{ shops.0.img }}" alt=""></h2>
+        {#     热销和新品    #}
+        <fieldset>
+            <a href="#"><img src="{{ shops.1.img }}" alt=""></a>
+            <a href="#"><img src="{{ shops.2.img }}" alt=""></a>
+        </fieldset>
+        {#    牛奶面包 酒水...    #}
+        <ul>
+            {% for shop in shops_more %}
+                <li>
+                    <a href="#">
+                        <dl>
+                            <dt>
+                                <img src="{{ shop.img }}" alt="">
+                            </dt>
+                            <dd>
+                                {{ shop.name }}
+                            </dd>
+                        </dl>
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+
+        {#     推荐    #}
+        <ol>
+            {% for shop in shops_rec %}
+                <li>
+                    <a href="#"><img src="{{ shop.img }}" alt=""></a>
+                </li>
+            {% endfor %}
+
+        </ol>
+    </section>
+
+    <!--主显示-->
+    <section class="mainInfo">
+        {% for mainshow in mainshows %}
+            <section>
+                <h3>
+                    {{ mainshow.name }}
+                    <a href="#">更多> </a>
+                    <span></span>
+                </h3>
+            </section>
+            <section>
+                <div>
+                    <a href="#">
+                        <img src="{{ mainshow.img }}" alt="">
+                    </a>
+                </div>
+            </section>
+            <section>
+                <ul>
+                    <li>
+                        <a href="#">
+                            <img src="{{ mainshow.img1 }}" alt="">
+                            <p class="description">{{ mainshow.longname1 }}</p>
+                            <span>{{ mainshow.price1 }}</span>
+                            <s>{{ mainshow.marketprice1 }}</s>
+                        </a>
+                        <button><span>+</span></button>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="{{ mainshow.img2 }}" alt="">
+                            <p class="description">{{ mainshow.longname2 }}</p>
+                            <span>{{ mainshow.price2 }}</span>
+                            <s>{{ mainshow.marketprice2 }}</s>
+                        </a>
+                        <button><span>+</span></button>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="{{ mainshow.img3 }}" alt="">
+                            <p class="description">{{ mainshow.longname3 }}</p>
+                            <span>{{ mainshow.price3 }}</span>
+                            <s>{{ mainshow.marketprice3 }}</s>
+                        </a>
+                        <button><span>+</span></button>
+                    </li>
+                </ul>
+            </section>
+        {% endfor %}
+
+    </section>
+
 {% endblock %}

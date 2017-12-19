@@ -1,58 +1,59 @@
-html, body{
-    width:100%;
-    height:100%;
+html, body {
+    width: 100%;
+    height: 100%;
 }
 
-body{
-    margin:0;
-    padding:0;
-    overflow-x:hidden;
-    overflow-y:auto;
-    background:#eee;
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background: #eee;
 }
 
-header, footer{
+header, footer {
     width: 100%;
     height: 1.5rem;
-    font-size:0.277777rem;
-    border-top:1px solid #f0f0f0;
-    z-index:10;
-    position:fixed;
+    font-size: 0.277777rem;
+    border-top: 1px solid #f0f0f0;
+    z-index: 10;
+    position: fixed;
     display: flex;
 }
-header{
+
+header {
     background: #ffd600;
-    top:0;
-    left:0;
+    top: 0;
+    left: 0;
 }
-footer{
-    background-color: rgba(246,246,246,.95);
+
+footer {
+    background-color: rgba(246, 246, 246, .95);
     height: 1.8rem;
-    bottom:0;
-    left:0;
+    bottom: 0;
+    left: 0;
 }
 
-footer a{
-    display:block;
-    width:25%!important;
-    text-align:center;
-    overflow:hidden!important;
+footer a {
+    display: block;
+    width: 25% !important;
+    text-align: center;
+    overflow: hidden !important;
 }
 
-footer dl dt{
-    height:0.777777rem;
-    padding-top:0.22222rem;
-    position:relative;
+footer dl dt {
+    height: 0.777777rem;
+    padding-top: 0.22222rem;
+    position: relative;
 }
 
-
-footer dl dt span{
-    display:inline-block;
-    width:0.6rem;
-    height:0.6rem;
+footer dl dt span {
+    display: inline-block;
+    width: 0.6rem;
+    height: 0.6rem;
 }
 
-footer dl dd{
+footer dl dd {
     width: 100%;
     height: 0.708333rem;
     color: #777;
@@ -60,47 +61,59 @@ footer dl dd{
     margin-top: 0.2rem;
 }
 
-
-footer .home span{
+footer .home span {
     background: url(/static/main/img/home.png) no-repeat;
-    background-size:0.6rem;
-}
-footer .market span{
-    background:url(/static/main/img/market.png) no-repeat;
-    background-size:0.6rem;
-}
-footer .cart span{
-    background:url(/static/main/img/cart.png) no-repeat;
-    background-size:0.6rem;
-}
-footer .mine span{
-    background:url(/static/main/img/mine.png) no-repeat;
-    background-size:0.6rem;
+    background-size: 0.6rem;
 }
 
-a{
-    text-decoration:none
+footer .market span {
+    background: url(/static/main/img/market.png) no-repeat;
+    background-size: 0.6rem;
 }
-a:link{
-    text-decoration:none
+
+footer .cart span {
+    background: url(/static/main/img/cart.png) no-repeat;
+    background-size: 0.6rem;
 }
-a:visited{
-    text-decoration:none
+
+footer .mine span {
+    background: url(/static/main/img/mine.png) no-repeat;
+    background-size: 0.6rem;
 }
-a:hover{
-    text-decoration:none
+
+a {
+    text-decoration: none
 }
-a:active{
-    text-decoration:none
+
+a:link {
+    text-decoration: none
+}
+
+a:visited {
+    text-decoration: none
+}
+
+a:hover {
+    text-decoration: none
+}
+
+a:active {
+    text-decoration: none
 }
 
 /* 上下边距 */
-#body_content{
+#body_content {
     margin: 1.5rem 0 1.8rem 0;
+    overflow: auto;
+    height: 100%;
+    width: 100%;
+    padding-bottom: 3.3rem;
+    position: fixed;
 }
 
+
 /* header 文字 */
-#header_content{
+#header_content {
     position: absolute;
     top: 0;
     bottom: 0;
@@ -109,7 +122,8 @@ a:active{
     font-weight: 700;
     font-size: 0.5rem;
 }
-#header_content #text{
+
+#header_content #text {
     display: block;
     position: absolute;
     top: 25%;

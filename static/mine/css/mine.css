@@ -2,17 +2,14 @@ footer .mine span{
     background:url(/static/main/img/mine1.png) no-repeat;
     background-size:0.6rem;
 }
-/* 下面留空的问题 */
-body{
-    height: 80%;
-}
 
 header{
     height: 4.5rem;
 }
 
 #body_content{
-    margin: 4.8rem 0 0 0;
+    margin-top: 4.5rem;
+    padding-bottom: 6.6rem;
 }
 
 #header_content{
