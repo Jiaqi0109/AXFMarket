@@ -7,10 +7,19 @@
 
 {% block header_content %}
     <div id="user">
-        <a class="user-img user-block" href="#"><img src="{% static 'uploadfiles/head_img/Sherlock.jpg' %}" id="user-img"></a>
-        <a class="user-name user-block">
-            Sherlock
-        </a>
+        {% if is_login %}
+            <a class="user-img user-block" href="#"><img src="{{ usericon }}" id="user-img"></a>
+            <a class="user-name user-block">
+                {{ username }}
+            </a>
+        {% else %}
+            <a class="user-img user-block" href="{% url 'axf:login' %}">
+                登录
+            </a>
+            <a class="user-name user-block" href="{% url 'axf:register' %}">
+                注册
+            </a>
+        {% endif %}
     </div>
     <div id="collection">
         <a class="collection-son">
@@ -73,7 +82,9 @@
             </a>
         </div>
     </div>
-    <div class="block logout">
-        <a href="#">退出当前账号</a>
-    </div>
+    {% if is_login %}
+        <div class="block logout">
+            <a href="{% url 'axf:logout' %}">退出当前账号</a>
+        </div>
+    {% endif %}
 {% endblock %}

@@ -111,18 +111,20 @@ header {
     height: 1.9rem;
     width: 1.9rem;
     display: inline-block;
+    text-align: center;
 }
 
 .user-name {
-    width: 5rem;
+    width: 4rem;
     line-height: 1.9rem;
-    font-size: 0.8rem;
-    color: #fff;
+    /*font-size: 0.8rem;*/
+    /*color: #fff;*/
     padding: 0.2rem;
 }
 
 #user-img {
     width: 1.9rem;
+    height: 1.9rem;
     border-radius: 1.9rem;
 }
 

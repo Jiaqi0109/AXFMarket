@@ -8,4 +8,10 @@ urlpatterns = [
     url(r'^market/$', views.urlToMarket, name='urlToMarket'),
     url(r'^market/(\d+)/(\d+)/(\d+)', views.market, name='market'),
     url(r'^cart/', views.cart, name='cart'),
+    url(r'^login/', views.login, name='login'),
+    url(r'^dologin/', views.doLogin, name='dologin'),
+    url(r'^register/', views.register, name='register'),
+    url(r'^doregister/', views.doRegister, name='doregister'),
+    url(r'^logout/', views.logout, name='logout'),
+    url(r'^checkuser/', views.checkUser, name='checkuser'),
 ]

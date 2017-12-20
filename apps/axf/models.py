@@ -1,5 +1,6 @@
 from django.db import models
 
+
 # Create your models here.
 
 
@@ -104,3 +105,18 @@ class Goods(models.Model):
 
     class Meta:
         db_table = 'axf_goods'
+
+
+# 创建用户模型
+class User(models.Model):
+    '''
+        用户名， 头像， 邮箱， 电话， 密码
+    '''
+    u_name = models.CharField(max_length=16, unique=True)
+    u_password = models.CharField(max_length=50)
+    u_icon = models.ImageField(upload_to='icons')
+    u_email = models.CharField(max_length=50)
+    u_phone = models.CharField(max_length=20)
+
+    class Meta:
+        db_table = 'axf_user'
