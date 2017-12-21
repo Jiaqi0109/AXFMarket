@@ -120,3 +120,25 @@ class User(models.Model):
 
     class Meta:
         db_table = 'axf_user'
+
+
+class Order(models.Model):
+    o_user = models.ForeignKey('User')
+    o_status = models.IntegerField(default=0)
+
+
+class Cart(models.Model):
+    # 一条购物车对应一个用户， 一个用户可以对应多条购物车数据
+    c_user = models.ForeignKey('User')
+    # 一条购物车数据对应一个商品
+    c_goods = models.ForeignKey('Goods')
+    # 商品数量
+    c_goods_num = models.IntegerField(default=1)
+    #
+    c_order = models.ForeignKey('Order', null=True, default=None)
+    # 此数据是否选中
+    c_selected = models.BooleanField(default=True)
+    # 此数据属于购物车展示还是订单展示 false代表属于购物车， true代表属于订单
+    c_belong = models.BooleanField(default=False)
+
+

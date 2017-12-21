@@ -4,7 +4,7 @@ from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.shortcuts import render, redirect
 from django.urls import reverse
 
-from .models import Wheel, Nav, MustBuy, Shop, MainShow, FoodTypes, Goods, User
+from .models import Wheel, Nav, MustBuy, Shop, MainShow, FoodTypes, Goods, User, Cart, Order
 
 
 # Create your views here.
@@ -87,7 +87,18 @@ def urlToMarket(request):
 
 
 def cart(request):
-    return render(request, 'axf/cart/cart.html')
+    username = request.session.get('username')
+    if username == None:
+        return redirect(reverse('axf:login'))
+
+    user = User.objects.get(u_name=username)
+    carts = Cart.objects.filter(c_user=user).filter(c_belong=False)
+
+    context = {
+        'carts': carts,
+    }
+
+    return render(request, 'axf/cart/cart.html', context)
 
 
 def mine(request):
@@ -211,3 +222,91 @@ def doLogin(request):
             return redirect(reverse('axf:login'))
     else:
         return redirect(reverse('axf:login'))
+
+
+def addToCart(request):
+    username = request.session.get('username')
+    if username == None:
+        return JsonResponse({'msg': '请先登录'})
+
+    goods_id = request.GET.get('goodsid')
+    goods = Goods.objects.get(pk=goods_id)
+    print(goods_id)
+    # 获取用户信息
+    user = User.objects.get(u_name=username)
+
+    c = Cart.objects.filter(c_user=user).filter(c_goods=goods).filter(c_belong=False)
+    if len(c) < 1:
+        c = Cart()
+    else:
+        c = c.first()
+        num = c.c_goods_num
+        c.c_goods_num = num + 1
+    # 存储购物信息
+    c.c_user = user
+    c.c_goods = goods
+
+    c.save()
+
+    return JsonResponse({'msg': '添加成功'})
+
+
+def changeSelect(request):
+    cartid = request.GET.get('cartid')
+    cartselected = request.GET.get('cartselected')
+
+    car = Cart.objects.get(pk=cartid)
+
+    if cartselected == 'True':
+        car.c_selected = False
+    else:
+        car.c_selected = True
+
+    car.save()
+
+    return JsonResponse({'msg': 'ok'})
+
+
+def cartgoossub(request):
+    cartid = request.GET.get('cartid')
+    c = Cart.objects.get(pk=cartid)
+    num = c.c_goods_num
+    if num == 1:
+        c.delete()
+    else:
+        c.c_goods_num = num - 1
+        c.save()
+
+    return JsonResponse({'num': num - 1})
+
+
+def genOrder(request):
+    cartids = request.GET.get('cartids')
+    cartids = cartids.split('#')
+    print(cartids)
+
+    order = Order()
+    username = request.session.get('username')
+    user = User.objects.get(u_name=username)
+
+    order.o_user = user
+    # 定义状态 0 默认生成状态   1 已下单未付款    2 已付款  3 已付款并已发货。。。
+    order.o_status = 1
+    order.save()
+
+    for item in cartids:
+        car = Cart.objects.get(pk=item)
+        # 修改属于哪张表
+        car.c_belong = True
+        car.c_order = order
+        car.save()
+
+    return JsonResponse({'msg': 'ok', 'orderid': order.id})
+
+
+# 支付，注册相关平台的开发者账号，配置自己的信息    ping++  可以集成多个付款平台
+def pay(request, orderid):
+    context = {
+        'orderid': orderid,
+    }
+    return render(request, 'axf/order/pay.html', context)

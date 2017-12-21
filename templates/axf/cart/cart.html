@@ -3,6 +3,7 @@
 
 {% block mainResource %}
     <link rel="stylesheet" href="{% static 'cart/css/cart.css' %}">
+    <script src="{% static 'cart/js/cart.js' %}"></script>
 {% endblock %}
 
 {% block header_content %}
@@ -10,5 +11,88 @@
 {% endblock %}
 
 {% block content %}
+    <div id="cart">
+        <section class="full">
+            <section>
+                <ul>
+                    <li>
+                        <div class="clear">
+                            <p class="infoJustify">收货人<b></b></p>
+                            <p>:<span>Sherlock</span></p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="clear">
+                            <p class="infoJustify">电话<b></b></p>
+                            <p>:<span>8888-8888</span><a class="change">修改></a></p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="clear"><p class="infoJustify">收货地址<b></b></p>
+                            <p>:<span>北京市海淀区天丰利商城</span></p>
+                        </div>
+                    </li>
+                </ul>
 
+
+                <section class="bill">
+                    <p>闪送超市</p>
+                    <p>¥0起送,22:00前满¥30免运费</p>
+                    <a>凑单专区</a>
+                </section>
+
+
+                <section class="delivery">
+                    <span>收货时间</span> <span>一小时送达</span> <a>可预订></a>
+                </section>
+                <section class="delivery">
+                    <span>收货备注</span> <input type="text" placeholder="可输入100字以内特殊要求内容"/>
+                </section>
+
+
+                <menu>
+                    <ul>
+                        {% for cart in carts %}
+                            <li id="{{ cart.c_goods_id }}li" class="menuList">
+                                <div class="confirm">
+                            <span class="ischose" cartid="{{ cart.id }}" cartselect="{{ cart.c_selected }}">
+                                {% ifequal True cart.c_selected %}
+                                    <span id="{{ cart.id }}" style="display: block;">
+                                        √
+                                    </span>
+                                {% else %}
+                                    <span id="{{ cart.id }}" style="display: none;">
+                                        √
+                                    </span>
+                                {% endifequal %}
+                            </span>
+                                </div>
+                                <a href="#">
+                                    <img src="{{ cart.c_goods.productimg }}"/>
+                                    <p>{{ cart.c_goods.productname }}</p>
+                                    <span id="{{ cart.c_goods.productid }}price"
+                                          class="{{ productprice }}">{{ cart.c_goods.productprice }}</span>
+                                </a>
+                                <section>
+                                    <button class="subShopping" cartid="{{ cart.id }}">-</button>
+                                    <span cartid="{{ cart.id }}">{{ cart.c_goods_num }}</span>
+                                    <button class="addShopping" cartid="{{ cart.id }}">+</button>
+                                </section>
+                            </li>
+                        {% endfor %}
+
+                        <li class="payTheBill">
+                            <div class="confirm"><span><span>
+                            {% if trueFlag %}
+                                √
+                            {% endif %}
+                        </span></span></div>
+                            <p><span>全选</span><span>共计:</span><span>总价</span></p>
+                            <a id="select_ok">选好了</a>
+                        </li>
+                    </ul>
+                </menu>
+            </section>
+        </section>
+    </div>
 {% endblock %}

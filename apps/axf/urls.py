@@ -14,4 +14,9 @@ urlpatterns = [
     url(r'^doregister/', views.doRegister, name='doregister'),
     url(r'^logout/', views.logout, name='logout'),
     url(r'^checkuser/', views.checkUser, name='checkuser'),
+    url(r'^addtocart/', views.addToCart, name='addtocart'),
+    url(r'^changeselect/', views.changeSelect, name='changeselect'),
+    url(r'^cartgoossub/', views.cartgoossub, name='cartgoossub'),
+    url(r'^genorder/', views.genOrder, name='genorder'),
+    url(r'^pay/(\d+)', views.pay, name='pay'),
 ]
